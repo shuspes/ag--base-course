@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Email } from '../Email';
 
 @Component({
   selector: 'app-list',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  @Input() emails: Email[];
+  @Output() onOpenEmail = new EventEmitter<Email>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  openEmail(email: Email) {
+    this.onOpenEmail.emit(email);
   }
 
 }

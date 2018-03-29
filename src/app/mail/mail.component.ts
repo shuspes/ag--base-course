@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { EMAILS } from "./utils/stubData";
+import { Email } from './Email';
 
 @Component({
   selector: 'app-mail',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mail.component.scss']
 })
 export class MailComponent implements OnInit {
+  @Input() filterValue: string;
+  emailList = EMAILS;
+  openedEmail: Email;
+  emailsForDisplay: Email[];
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ngDoCheck() {
+    this.emailsForDisplay = this.emailList.filter(it => it.subject.toLowerCase().includes(this.filterValue.toLowerCase()));
   }
 
+  openEmail(email: Email) {
+    this.openedEmail = email;
+  }
+
+  closeEmail() {
+    this.openedEmail = null;
+  }
 }

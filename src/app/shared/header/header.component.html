@@ -1,5 +1,4 @@
-<p>
-  header works!
-</p>
-<app-main-menu></app-main-menu>
-<app-filter></app-filter>
+<div class="css-header-container">
+  <app-main-menu></app-main-menu>
+  <app-filter [filterValue]="filterValue" (onFilterChange)="changeFilter($event)"></app-filter>
+</div>

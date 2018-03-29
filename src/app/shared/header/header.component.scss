@@ -1,0 +1,9 @@
+@import "../../variables.scss";
+
+.css-header-container {
+  height: $headerHeigh;
+  width: 100%;
+  border-bottom: 2px solid lightgrey;
+  position: fixed;
+  display: flex;
+}

@@ -1,0 +1,8 @@
+@import "../variables.scss";
+
+.css-mail-content {
+  height: $bodyHeigh;
+  padding-top: $headerHeigh;
+  display: flex;
+  flex-direction: row;
+}
