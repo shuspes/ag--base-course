@@ -11,6 +11,7 @@ import { ListComponent } from './mail/list/list.component';
 import { DetailComponent } from './mail/detail/detail.component';
 
 import { AppService } from "./services/app.service";
+import { FilterEmailPipe } from './pipes/filter-email.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AppService } from "./services/app.service";
     MainMenuComponent,
     MenuComponent,
     ListComponent,
-    DetailComponent
+    DetailComponent,
+    FilterEmailPipe
   ],
   imports: [
     BrowserModule

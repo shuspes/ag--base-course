@@ -1,4 +1,4 @@
-<div *ngFor="let email of emailList" (click)="openEmail(email)" class="css-mail-element">
+<div *ngFor="let email of emailList | filterEmail: filterValue" (click)="openEmail(email)" class="css-mail-element">
   <div class="css-mail-element-field main">{{email.subject | uppercase}}</div>
   <div class="css-mail-element-field">{{email.sender}}</div>
   <div class="css-mail-element-field">{{email.date}}</div>  
