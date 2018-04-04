@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EMAILS } from "./utils/stubData";
-import { Email } from 'Types';
+import { Email } from "Types";
 
 @Component({
   selector: 'app-mail',
