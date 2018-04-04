@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Email } from 'Types';
-import { EMAILS } from 'App/mail/utils/stubData';
+import { EMAILS } from 'App/utils/stubData';
 
 @Injectable()
 export class MailService {

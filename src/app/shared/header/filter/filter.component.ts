@@ -12,7 +12,6 @@ export class FilterComponent implements OnInit {
   constructor(private appService: AppService) { }
 
   ngOnInit() {
-    console.log("ngOnInit", this.appService.getFilter());
     this.filterValue = this.appService.getFilter();
   }
 
