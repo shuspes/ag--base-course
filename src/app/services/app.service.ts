@@ -7,11 +7,11 @@ export class AppService {
 
   constructor() { }
 
-  public getFilter() {
+  public getFilter(): string {
     return this.filterValue;
   }
 
-  public setFilter(value: string) {
+  public setFilter(value: string): void {
     this.filterValue = value;
   }
 }

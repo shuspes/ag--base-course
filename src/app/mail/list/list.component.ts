@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Email } from 'Types';
+import { MailService } from "App/services/mail.service";
 
 @Component({
   selector: 'app-list',
@@ -7,16 +8,15 @@ import { Email } from 'Types';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  @Input() emails: Email[];
-  @Output() onOpenEmail = new EventEmitter<Email>();
+  protected emailList: Array<Email> = [];
 
-  constructor() { }
+  constructor(private mailService: MailService) { }
 
   ngOnInit() {
+    this.emailList = this.mailService.getEmails();
   }
 
-  openEmail(email: Email) {
-    this.onOpenEmail.emit(email);
+  openEmail(email: Email): void {
+    this.mailService.openEmail(email);
   }
-
 }

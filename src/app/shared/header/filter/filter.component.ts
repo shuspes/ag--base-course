@@ -16,7 +16,7 @@ export class FilterComponent implements OnInit {
     this.filterValue = this.appService.getFilter();
   }
 
-  changeFilterValue(value: string) {
+  changeFilterValue(value: string): void {
     this.appService.setFilter(value);
   }
 }

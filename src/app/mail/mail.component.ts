@@ -1,35 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { EMAILS } from "./utils/stubData";
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { Email } from "Types";
 import { AppService } from "App/services/app.service";
+import { MailService } from "App/services/mail.service";
 
 @Component({
   selector: 'app-mail',
   templateUrl: './mail.component.html',
-  styleUrls: ['./mail.component.scss']
+  styleUrls: ['./mail.component.scss'],
+  providers: [MailService]
 })
-export class MailComponent implements OnInit {
+export class MailComponent implements OnInit, DoCheck {
   protected filterValue: string = "";
-  emailList: Email[] = EMAILS;
-  openedEmail: Email;
-  emailsForDisplay: Email[];
+  protected isOpenDetail: boolean;
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private mailService: MailService) { }
 
   ngOnInit() {
     this.filterValue = this.appService.getFilter();
+    this.isOpenDetail = this.mailService.isOpenDetail();
   }
 
   ngDoCheck() {
     this.filterValue = this.appService.getFilter();
-    this.emailsForDisplay = this.emailList.filter(it => it.subject.toLowerCase().includes(this.filterValue.toLowerCase()));
-  }
-
-  openEmail(email: Email) {
-    this.openedEmail = email;
-  }
-
-  closeEmail() {
-    this.openedEmail = null;
+    this.isOpenDetail = this.mailService.isOpenDetail();
+    //TODO: remove
+    // this.emailsForDisplay = this.emailList.filter(it => it.subject.toLowerCase().includes(this.filterValue.toLowerCase()));
   }
 }
