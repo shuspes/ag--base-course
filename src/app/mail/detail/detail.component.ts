@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Email } from "../Email";
+import { Email } from "Types";
 
 @Component({
   selector: 'app-detail',

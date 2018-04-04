@@ -1,4 +1,4 @@
-import { Email } from "../Email";
+import { Email } from "Types";
 
 export const EMAILS: Email[] = [
   {
