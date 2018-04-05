@@ -4,4 +4,8 @@ export class Email {
   date: string;
   subject: string;
   content: string;
-}
+};
+
+export class EmailListFilter {
+  filterValue: string;
+};
