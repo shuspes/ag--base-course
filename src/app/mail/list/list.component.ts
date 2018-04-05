@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { Email } from 'Types';
 import { MailService } from "App/services/mail.service";
 import { AppService } from 'App/services/app.service';
@@ -8,7 +8,7 @@ import { AppService } from 'App/services/app.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, AfterContentChecked {
   protected emailList: Array<Email> = [];
   protected filterValue: string = "";
 
@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
     this.filterValue = this.appService.getFilter();
   }
 
-  ngDoCheck() {
+  ngAfterContentChecked() {
     this.filterValue = this.appService.getFilter();
   }
 

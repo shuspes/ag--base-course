@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { Email } from "Types";
 import { AppService } from "App/services/app.service";
 import { MailService } from "App/services/mail.service";
@@ -9,7 +9,7 @@ import { MailService } from "App/services/mail.service";
   styleUrls: ['./mail.component.scss'],
   providers: [MailService]
 })
-export class MailComponent implements OnInit, DoCheck {
+export class MailComponent implements OnInit, AfterContentChecked {
   protected filterValue: string = "";
   protected isOpenDetail: boolean;
 
@@ -20,10 +20,8 @@ export class MailComponent implements OnInit, DoCheck {
     this.isOpenDetail = this.mailService.isOpenDetail();
   }
 
-  ngDoCheck() {
+  ngAfterContentChecked() {
     this.filterValue = this.appService.getFilter();
     this.isOpenDetail = this.mailService.isOpenDetail();
-    //TODO: remove
-    // this.emailsForDisplay = this.emailList.filter(it => it.subject.toLowerCase().includes(this.filterValue.toLowerCase()));
   }
 }

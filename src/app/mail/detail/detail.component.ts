@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { Email } from "Types";
 import { MailService } from "App/services/mail.service";
 
@@ -7,7 +7,7 @@ import { MailService } from "App/services/mail.service";
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
-export class DetailComponent implements OnInit, DoCheck {
+export class DetailComponent implements OnInit, AfterContentChecked {
   protected email: Email;
 
   constructor(private mailService: MailService) { }
@@ -16,7 +16,7 @@ export class DetailComponent implements OnInit, DoCheck {
     this.email = this.mailService.getOpenedEmail();
   }
 
-  ngDoCheck() {
+  ngAfterContentChecked() {
     this.email = this.mailService.getOpenedEmail();
   }
 
