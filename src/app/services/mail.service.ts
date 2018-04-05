@@ -6,6 +6,7 @@ import { EMAILS } from 'App/utils/stubData';
 export class MailService {
   private emailList: Array<Email> = [];
   private openedEmail: Email;
+  private source: string = "inbox";
 
   constructor() { }
 
@@ -27,6 +28,14 @@ export class MailService {
 
   public getOpenedEmail(): Email {
     return this.openedEmail;
+  }
+
+  public getSource(): string {
+    return this.source;
+  }
+
+  public setSource(source: string): void {
+    this.source = source;
   }
 
   private setOpenedEmail(email: Email): void {

@@ -6,20 +6,23 @@ export const EMAILS: Email[] = [
     sender: "some person",
     date: "21/02/2018",
     subject: "Spring",
-    content: "Hello, Harry! How are you?"
+    content: "Hello, Harry! How are you?",
+    source: "inbox"
   },
   {
     id: 2,
     sender: "another person",
     date: "12/01/2018",
     subject: "Issue",
-    content: "We have some issues with Email project."
+    content: "We have some issues with Email project.",
+    source: "inbox"    
   },
   {
     id: 3,
     sender: "Harry",
     date: "6/03/2018",
     subject: "Congratulations",
-    content: "Happy birthday to you, dear Jess!"
+    content: "Happy birthday to you, dear Jess!",
+    source: "outbox"    
   }
 ];

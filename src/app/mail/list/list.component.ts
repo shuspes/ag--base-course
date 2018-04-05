@@ -10,24 +10,22 @@ import { AppService } from 'App/services/app.service';
 })
 export class ListComponent implements OnInit, AfterContentChecked {
   protected emailList: Array<Email> = [];
-  protected filterValue: string = "";
   protected filterObject: EmailListFilter;
 
   constructor(private appService: AppService, private mailService: MailService) { }
 
   ngOnInit() {
     this.emailList = this.mailService.getEmails();
-    this.filterValue = this.appService.getFilter();
     this.filterObject = this.getFilterObject();
   }
 
   private getFilterObject(): EmailListFilter {
     const filterValue = this.appService.getFilter();
-    return {filterValue};
+    const source = this.mailService.getSource();
+    return {filterValue, source};
   }
 
   ngAfterContentChecked() {
-    this.filterValue = this.appService.getFilter();
     this.filterObject = this.getFilterObject();    
   }
 

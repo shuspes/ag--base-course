@@ -7,9 +7,9 @@ import { Email, EmailListFilter } from 'Types';
 export class FilterEmailPipe implements PipeTransform {
 
   transform(emails: Array<Email>, filterObject: EmailListFilter): Array<Email> {
-    const { filterValue = "" } = filterObject;
+    const { filterValue = "", source = "" } = filterObject;
     const filterString = filterValue.toLowerCase();
-    const result = emails.filter(it => it.subject.toLowerCase().includes(filterString)
+    const result = emails.filter(it => it.source === source).filter(it => it.subject.toLowerCase().includes(filterString)
             || it.sender.toLowerCase().includes(filterString));    
     return result;
   }
