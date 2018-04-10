@@ -1,22 +1,35 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Email } from '../Email';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
+import { Email, EmailListFilter } from 'Types';
+import { MailService } from "App/services/mail.service";
+import { AppService } from 'App/services/app.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
-  @Input() emails: Email[];
-  @Output() onOpenEmail = new EventEmitter<Email>();
+export class ListComponent implements OnInit, AfterContentChecked {
+  protected emailList: Array<Email> = [];
+  protected filterObject: EmailListFilter;
 
-  constructor() { }
+  constructor(private appService: AppService, private mailService: MailService) { }
 
   ngOnInit() {
+    this.emailList = this.mailService.getEmails();
+    this.filterObject = this.getFilterObject();
   }
 
-  openEmail(email: Email) {
-    this.onOpenEmail.emit(email);
+  private getFilterObject(): EmailListFilter {
+    const filterValue = this.appService.getFilter();
+    const source = this.mailService.getSource();
+    return {filterValue, source};
   }
 
+  ngAfterContentChecked() {
+    this.filterObject = this.getFilterObject();    
+  }
+
+  openEmail(email: Email): void {
+    this.mailService.openEmail(email);
+  }
 }

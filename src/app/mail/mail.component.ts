@@ -1,31 +1,27 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { EMAILS } from "./utils/stubData";
-import { Email } from './Email';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
+import { Email } from "Types";
+import { AppService } from "App/services/app.service";
+import { MailService } from "App/services/mail.service";
 
 @Component({
   selector: 'app-mail',
   templateUrl: './mail.component.html',
-  styleUrls: ['./mail.component.scss']
+  styleUrls: ['./mail.component.scss'],
+  providers: [MailService]
 })
-export class MailComponent implements OnInit {
-  @Input() filterValue: string;
-  emailList = EMAILS;
-  openedEmail: Email;
-  emailsForDisplay: Email[];
+export class MailComponent implements OnInit, AfterContentChecked {
+  protected filterValue: string = "";
+  protected isOpenDetail: boolean;
 
-  constructor() { }
+  constructor(private appService: AppService, private mailService: MailService) { }
 
-  ngOnInit() {}
-
-  ngDoCheck() {
-    this.emailsForDisplay = this.emailList.filter(it => it.subject.toLowerCase().includes(this.filterValue.toLowerCase()));
+  ngOnInit() {
+    this.filterValue = this.appService.getFilter();
+    this.isOpenDetail = this.mailService.isOpenDetail();
   }
 
-  openEmail(email: Email) {
-    this.openedEmail = email;
-  }
-
-  closeEmail() {
-    this.openedEmail = null;
+  ngAfterContentChecked() {
+    this.filterValue = this.appService.getFilter();
+    this.isOpenDetail = this.mailService.isOpenDetail();
   }
 }

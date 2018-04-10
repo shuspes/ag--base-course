@@ -4,4 +4,10 @@ export class Email {
   date: string;
   subject: string;
   content: string;
-}
+  source: string
+};
+
+export interface EmailListFilter {
+  filterValue: string;
+  source: string;
+};

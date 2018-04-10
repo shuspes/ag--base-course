@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MailService } from 'App/services/mail.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mailService: MailService) { }
 
   ngOnInit() {
   }
 
+  changeSource(source: string): void {
+    this.mailService.setSource(source);
+  }
 }

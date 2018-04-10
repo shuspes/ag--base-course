@@ -10,6 +10,8 @@ import { MenuComponent } from './mail/menu/menu.component';
 import { ListComponent } from './mail/list/list.component';
 import { DetailComponent } from './mail/detail/detail.component';
 
+import { AppService } from "./services/app.service";
+import { FilterEmailPipe } from './pipes/filter-email.pipe';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,15 @@ import { DetailComponent } from './mail/detail/detail.component';
     MainMenuComponent,
     MenuComponent,
     ListComponent,
-    DetailComponent
+    DetailComponent,
+    FilterEmailPipe
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    AppService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

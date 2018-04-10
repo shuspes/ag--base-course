@@ -1,10 +1,10 @@
 <div class="css-mail-content">
   <app-menu></app-menu>
-  <div *ngIf="openedEmail; then detail else list"></div>
+  <div *ngIf="isOpenDetail; then detail else list"></div>
   <ng-template #detail>
-    <app-detail [email]="openedEmail" (onCloseEmail)="closeEmail()"></app-detail>
+    <app-detail></app-detail>
   </ng-template>
   <ng-template #list>
-    <app-list [emails]="emailsForDisplay" (onOpenEmail)="openEmail($event)"></app-list>
+    <app-list></app-list>
   </ng-template>
 </div>
