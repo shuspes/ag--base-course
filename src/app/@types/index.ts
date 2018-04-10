@@ -7,7 +7,7 @@ export class Email {
   source: string
 };
 
-export class EmailListFilter {
+export interface EmailListFilter {
   filterValue: string;
   source: string;
 };
