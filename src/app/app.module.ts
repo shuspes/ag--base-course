@@ -12,6 +12,9 @@ import { DetailComponent } from './mail/detail/detail.component';
 
 import { AppService } from "./services/app.service";
 import { FilterEmailPipe } from './pipes/filter-email.pipe';
+import { LoginFormComponent } from './forms/login-form/login-form.component';
+import { FormsModule }   from '@angular/forms';
+import { ReactiveFormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,13 @@ import { FilterEmailPipe } from './pipes/filter-email.pipe';
     MenuComponent,
     ListComponent,
     DetailComponent,
-    FilterEmailPipe
+    FilterEmailPipe,
+    LoginFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AppService

@@ -1,3 +1,9 @@
-<app-header></app-header>
-<app-mail></app-mail>
+<div *ngIf="username; then appPage else login"></div>
+  <ng-template #appPage>
+      <app-header></app-header>
+      <app-mail></app-mail>
+  </ng-template>
+  <ng-template #login>
+    <app-login-form></app-login-form>
+  </ng-template>
 
