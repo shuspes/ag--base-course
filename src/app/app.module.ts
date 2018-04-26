@@ -16,6 +16,18 @@ import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule }   from '@angular/forms';
 
+//NOTE: routing
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'mails', component: MailComponent },
+  { path: 'login', component: LoginFormComponent },
+  
+  // { path: 'detail/:id', component: HeroDetailComponent },
+  // { path: 'heroes', component: HeroesComponent }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +44,8 @@ import { ReactiveFormsModule }   from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     AppService

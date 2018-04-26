@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { AppService } from 'App/services/app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -13,7 +14,7 @@ export class LoginFormComponent implements OnInit {
     "userName": new FormControl("", Validators.required),
     "password": new FormControl("", Validators.required)
 });
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,6 +24,8 @@ export class LoginFormComponent implements OnInit {
 
     if(this.loginForm.valid) {
       this.appService.login(this.loginForm.value.userName);
+    this.router.navigate(['/mails']);
+      
     }
   }
 
