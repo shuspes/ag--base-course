@@ -20,11 +20,12 @@ import { ReactiveFormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { ContactListComponent } from "./contact/list/list.component";
+import { LoginGuard } from "./guards/login.guard";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'mails', component: MailComponent },
-  { path: 'contacts', component: ContactComponent },
+  { path: 'mails', component: MailComponent, canActivate: [LoginGuard] },
+  { path: 'contacts', component: ContactComponent, canActivate: [LoginGuard] },
   { path: 'login', component: LoginFormComponent },
   
   // { path: 'detail/:id', component: HeroDetailComponent },
@@ -53,7 +54,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    AppService
+    AppService,
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })

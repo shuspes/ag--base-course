@@ -21,6 +21,10 @@ export class AppService {
     return this.userName;
   }
 
+  public isLogin() : boolean {
+    return Boolean(this.getUserNameFromStorage());
+  }
+
   public login(userName: string): void {
     if(userName == null) return;
     this.setUserNameFromStorage(userName);
