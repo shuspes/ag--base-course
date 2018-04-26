@@ -1,4 +1,4 @@
-import { Email } from "Types";
+import { Email, Contact } from "Types";
 
 export const EMAILS: Email[] = [
   {
@@ -26,3 +26,16 @@ export const EMAILS: Email[] = [
     source: "outbox"    
   }
 ];
+
+export const CONTACTS: Contact[] = [
+  {
+    id: 1,
+    name: "Den",
+    lastName: "Pupkin"
+  },
+  {
+    id: 2,
+    name: "Sara",
+    lastName: "Abramovna"
+  }
+]

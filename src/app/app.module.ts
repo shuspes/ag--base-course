@@ -18,10 +18,13 @@ import { ReactiveFormsModule }   from '@angular/forms';
 
 //NOTE: routing
 import { RouterModule, Routes } from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
+import { ContactListComponent } from "./contact/list/list.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'mails', component: MailComponent },
+  { path: 'contacts', component: ContactComponent },
   { path: 'login', component: LoginFormComponent },
   
   // { path: 'detail/:id', component: HeroDetailComponent },
@@ -39,7 +42,9 @@ const routes: Routes = [
     ListComponent,
     DetailComponent,
     FilterEmailPipe,
-    LoginFormComponent
+    LoginFormComponent,
+    ContactComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,

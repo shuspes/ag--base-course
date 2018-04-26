@@ -1,4 +1,4 @@
-<select>
-    <option selected>Emails</option>
-    <option>Contacts</option>
-  </select>
+<select (change)="selectModule($event)">
+  <option selected value="mails">Emails</option>
+  <option value="contacts">Contacts</option>
+</select>
