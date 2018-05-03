@@ -3,7 +3,7 @@ import { ContactService } from 'App/services/contact.service';
 import { Contact } from 'App/@types';
 
 @Component({
-  selector: 'app-cotact-list',
+  selector: 'app-contact-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })

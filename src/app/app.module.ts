@@ -16,17 +16,21 @@ import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule }   from '@angular/forms';
 
-//NOTE: routing
-import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
-import { ContactListComponent } from "./contact/list/list.component";
+//import { ContactListComponent } from "./contact/list/list.component";
+
+import { ContactModule } from "./contact/contact.module";
+
+//NOTE: routing
 import { LoginGuard } from "./guards/login.guard";
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'mails', component: MailComponent, canActivate: [LoginGuard] },
   { path: 'contacts', component: ContactComponent, canActivate: [LoginGuard] },
   { path: 'login', component: LoginFormComponent },
+  { path: "**", redirectTo: '/mails' }
   
   // { path: 'detail/:id', component: HeroDetailComponent },
   // { path: 'heroes', component: HeroesComponent }
@@ -44,14 +48,15 @@ const routes: Routes = [
     DetailComponent,
     FilterEmailPipe,
     LoginFormComponent,
-    ContactComponent,
-    ContactListComponent
+    //ContactComponent,
+    //ContactListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ContactModule
   ],
   providers: [
     AppService,
