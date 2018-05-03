@@ -12,6 +12,7 @@ import { MainMenuComponent } from './shared/header/menu/menu.component';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
 
 import { AppService } from "./services/app.service";
+import { UserService } from 'App/services/user.service';
 
 import { LoginFormGuard } from "./guards/login-form.guard";
 
@@ -51,6 +52,7 @@ const routes: Routes = [
   ],
   providers: [
     AppService,
+    UserService,
     LoginFormGuard
   ],
   bootstrap: [AppComponent]

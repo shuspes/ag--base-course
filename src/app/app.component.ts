@@ -7,15 +7,10 @@ import { AppService } from 'App/services/app.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public username: string;
 
   constructor(private appService: AppService) { }
 
-  ngOnInit() {
-    this.username = this.appService.getUserName();
-  }
+  ngOnInit() { }
 
-  ngAfterContentChecked() {
-    this.username = this.appService.getUserName();
-  }
+  ngAfterContentChecked() { }
 }
