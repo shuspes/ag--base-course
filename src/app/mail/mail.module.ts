@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
 
 import { MailComponent } from './mail.component';
 import { MenuComponent } from './menu/menu.component';
@@ -8,9 +9,16 @@ import { DetailComponent } from './detail/detail.component';
 
 import { FilterEmailPipe } from '../pipes/filter-email.pipe';
 
+import { LoginGuard } from "../guards/login.guard";
+
+const routes: Routes = [
+  { path: '', component: MailComponent, canActivate: [LoginGuard] }
+];
+
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [
     MailComponent,
@@ -18,6 +26,9 @@ import { FilterEmailPipe } from '../pipes/filter-email.pipe';
     ListComponent,
     DetailComponent,
     FilterEmailPipe
+  ],
+  providers: [
+    LoginGuard
   ]
 })
 export class MailModule { }
