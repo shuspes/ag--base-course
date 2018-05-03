@@ -25,7 +25,6 @@ export class LoginFormComponent implements OnInit {
     if(this.loginForm.valid) {
       this.userService.login(this.loginForm.value.userName);
     this.router.navigate(['/mails']);
-      
     }
   }
 

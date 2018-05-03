@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   private localStorageUsernameKey: string = "userName";
-  private userName: string = this.getUserNameFromStorage();
   
   constructor() { }
 
@@ -15,7 +14,17 @@ export class UserService {
   public login(userName: string): void {
     if(userName == null) return;
     this.setUserNameFromStorage(userName);
-    this.userName = this.getUserNameFromStorage();
+  }
+
+  public logout(): Promise<any> {
+    return Promise.resolve()
+      .then(() => {
+        this.setUserNameFromStorage("");
+      });
+  }
+
+  public getUserName(): string {
+    return this.getUserNameFromStorage();
   }
 
   private getUserNameFromStorage(): string {
