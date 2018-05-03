@@ -23,13 +23,14 @@ import { ContactModule } from "./contact/contact.module";
 
 //NOTE: routing
 import { LoginGuard } from "./guards/login.guard";
+import { LoginFormGuard } from "./guards/login-form.guard";
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'mails', component: MailComponent, canActivate: [LoginGuard] },
   { path: 'contacts', component: ContactComponent, canActivate: [LoginGuard] },
-  { path: 'login', component: LoginFormComponent },
+  { path: 'login', component: LoginFormComponent, canActivate: [LoginFormGuard] },
   { path: "**", redirectTo: '/mails' }
   
   // { path: 'detail/:id', component: HeroDetailComponent },
@@ -60,7 +61,8 @@ const routes: Routes = [
   ],
   providers: [
     AppService,
-    LoginGuard
+    LoginGuard,
+    LoginFormGuard
   ],
   bootstrap: [AppComponent]
 })

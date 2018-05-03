@@ -5,16 +5,16 @@ import { AppService } from 'App/services/app.service';
 import { Router } from '@angular/router';
 
 @Injectable()
-export class LoginGuard implements CanActivate {
-  
+export class LoginFormGuard implements CanActivate {
+
   constructor(private appService: AppService, private router: Router) { }
 
   canActivate() {
     if(this.appService.isLogin()) {
-      return true;
+      this.router.navigate(['/mails']);      
+      return false;
     } else {
-      this.router.navigate(['/login']);
-      return false;        
+      return true;        
     }
   }
 }
