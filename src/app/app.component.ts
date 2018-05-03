@@ -1,16 +1,14 @@
-import { Component } from '@angular/core';
-import { AppService } from 'App/services/app.service';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from 'App/services/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(private appService: AppService) { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() { }
-
-  ngAfterContentChecked() { }
 }
