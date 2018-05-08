@@ -1,5 +1,18 @@
-<div *ngFor="let email of emailList | filterEmail: filterObject" (click)="openEmail(email)" class="css-mail-element">
-  <div class="css-mail-element-field main">{{email.subject | uppercase}}</div>
-  <div class="css-mail-element-field">{{email.sender}}</div>
-  <div class="css-mail-element-field">{{email.date}}</div>
+<div class="css-mail-list">
+<table class="table table-hover table-sm">
+    <thead>
+      <tr>
+        <th style="width: 60%">Subject</th>
+        <th style="width: 20%">Sender</th>
+        <th style="width: 20%">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let email of emailList | filterEmail: filterObject" (click)="openEmail(email)" class="css-mail-element">
+        <td>{{email.subject | uppercase}}</td>
+        <td>{{email.sender}}</td>
+        <td>{{email.date}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

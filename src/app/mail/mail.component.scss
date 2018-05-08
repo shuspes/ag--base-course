@@ -1,6 +1,7 @@
 @import "../variables.scss";
 
 .css-mail-content {
+  z-index: 1;
   height: $bodyHeigh;
   padding-top: $headerHeigh;
   display: flex;
