@@ -1,10 +1,9 @@
-<div [ngClass]="{'dropdown': true, 'show': isOpen}" (click)="isOpen = !isOpen">
-  <button class="btn btn-success dropdown-toggle">
+<li class="nav-item dropdown" (click)="isOpen = !isOpen">
+  <a [ngClass]="{'nav-link dropdown-toggle': true, 'show': isOpen}">
     Select Application
-  </button>
-
+  </a>
   <div [ngClass]="{'dropdown-menu': true, 'show': isOpen}">
     <a class="dropdown-item" routerLink="/mails">Mails</a>
     <a class="dropdown-item" routerLink="/contacts">Contacts</a>
   </div>
-</div>
+</li>
