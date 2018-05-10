@@ -5,7 +5,7 @@ export class AppService {
 
   private filterValue: string = "";
 
-  constructor() { }
+  constructor() {}
 
   public getFilter(): string {
     return this.filterValue;

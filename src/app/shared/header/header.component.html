@@ -1,4 +1,8 @@
-<div class="css-header-container">
-  <app-main-menu></app-main-menu>
+<nav class="css-header-container navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Hello, {{userName}}!</a>
+  <ul class="navbar-nav mr-auto">
+    <app-main-menu></app-main-menu>
+  </ul>
   <app-filter></app-filter>
-</div>
+  <button (click)="logout()" type="button" class="btn btn-link">Logout</button>
+</nav>

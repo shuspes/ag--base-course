@@ -1,0 +1,15 @@
+.css-contact-element {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 600px;
+  cursor: pointer;
+
+  .css-contact-element-field {
+    padding: 5px;
+
+    &.main {
+      font-weight: bold;
+    }
+  }
+}

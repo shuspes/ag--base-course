@@ -1,15 +1,11 @@
-.css-mail-element {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 600px;
-  cursor: pointer;
+@import "../mailVariables.scss";
+@import "../../variables.scss";
 
-  .css-mail-element-field {
-    padding: 5px;
-
-    &.main {
-      font-weight: bold;
-    }
+.css-mail-list {
+  position: absolute;
+  top: calc(#{$headerHeigh} - 1px);
+  width: $contentWidth;
+  .css-mail-element {
+    cursor: pointer;
   }
 }

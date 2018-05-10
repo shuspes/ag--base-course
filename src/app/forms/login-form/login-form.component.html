@@ -1,0 +1,20 @@
+<form [formGroup]="loginForm" (ngSubmit)="submit()" class="login-form was-validated">
+    <label>User name</label>
+    <input class="form-control" name="userName" formControlName="userName" />
+    <div *ngIf="loginForm.disabled">
+    <div *ngIf="loginForm.controls['userName'].valid" class="valid-feedback">
+        Looks good!
+    </div>
+    <div *ngIf="loginForm.controls['userName'].invalid && loginForm.controls['userName'].touched" class="invalid-feedback">
+        Username is required!
+    </div>
+    </div>
+    <br>
+    <label>Password</label>
+    <input class="form-control" type="password" name="password" formControlName="password" />
+    <span *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">Password is required!</span>    
+    <br>
+    <button class="btn btn-primary" [disabled]="!loginForm.valid">
+        Login
+    </button>
+  </form>

@@ -1,0 +1,8 @@
+$formWidth: 400px;
+
+.login-form {
+  width: $formWidth;
+  position: absolute;
+  top: calc(30%);
+  left: calc(50% - #{$formWidth / 2});  
+}

@@ -7,6 +7,12 @@ export class Email {
   source: string
 };
 
+export class Contact {
+  id: number;
+  name: string;
+  lastName: string;
+};
+
 export interface EmailListFilter {
   filterValue: string;
   source: string;

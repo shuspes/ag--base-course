@@ -1,6 +1,7 @@
 @import "../../variables.scss";
 
 .css-header-container {
+  z-index: 2;
   height: $headerHeigh;
   width: 100%;
   border-bottom: 2px solid lightgrey;
